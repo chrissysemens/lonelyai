@@ -1,0 +1,11 @@
+{
+  "projects": {
+    "default": "lonelyai-ebed9"
+  },
+  "targets": {},
+  "etags": {
+    "lonelyai-ebed9": {
+      "extensionInstances": {}
+    }
+  }
+}
