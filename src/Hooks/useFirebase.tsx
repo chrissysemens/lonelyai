@@ -17,8 +17,9 @@ type UseFirebaseProps = {
 
 export const useFirebase = <T, >({
   collectionName,
-}: UseFirebaseProps): { data: Array<T>; add: (data: T) => void } => {
+}: UseFirebaseProps): { data: Array<T>; add: (data: T) => void, loading: boolean } => {
   const [data, setData] = useState<Array<T>>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const add = async (item: T) => {
     const ref = doc(collection(db, `${collectionName}`));
@@ -26,6 +27,7 @@ export const useFirebase = <T, >({
   };
 
   useEffect(() => {
+    setLoading(true);
     const q = query(collection(db, `${collectionName}`));
 
     onSnapshot(q, (querySnapshot) => {
@@ -35,7 +37,8 @@ export const useFirebase = <T, >({
         items.push(item);
       });
       setData(items);
+      setLoading(false);
     });
   }, [collectionName]);
-  return { data, add };
+  return { data, loading, add };
 };

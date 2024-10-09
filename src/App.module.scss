@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     margin: 10px;
+    margin-bottom: 50px;
     h1 {
         color: white;
         margin: 0px;
     }
     span {
         color: white;
-        font-size: small;
+        font-size: medium;
     }
 }
 
@@ -16,24 +17,38 @@
     display: flex;
     flex-direction: row;
     flex: 1;
+    margin: auto;
 
     .solus {
+        min-width: 500px;
+        max-width: 50vh;
     }
 
-    .latestThought {
-        .heading {
-            color: white;
-        }
-        color: white;
-        font-size: 10px;
-        display: flex;
-        flex-direction: column;
-        background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
-        border: 2px solid white;
-        border-radius: 15px;
-        padding: 10px;
-        max-width: 450px;
-        max-height: 500px;
-        overflow-x: auto;
+    .emotions {
+      display: flex;
+      flex: 1;
+      margin: -40px auto;
+      justify-content: center;
     }
   }
+
+  @media only screen and (max-width: 1080px) {
+    .lonelyAi {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin: auto;
+        max-width: 100vw;
+        min-width: 100vw;
+  }
+
+  .solus {
+    display: flex;
+    margin: auto;
+  }
+
+  .latestThought {
+    display: flex;
+    margin: auto;
+  }
+}
