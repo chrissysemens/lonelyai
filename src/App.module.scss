@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    h1 {
+        color: white;
+        margin: 0px;
+    }
+    span {
+        color: white;
+        font-size: small;
+    }
+}
+
+.lonelyAi {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+
+    .solus {
+    }
+
+    .latestThought {
+        .heading {
+            color: white;
+        }
+        color: white;
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+        border: 2px solid white;
+        border-radius: 15px;
+        padding: 10px;
+        max-width: 450px;
+        max-height: 500px;
+        overflow-x: auto;
+    }
+  }
