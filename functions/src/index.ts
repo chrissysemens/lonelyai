@@ -29,12 +29,8 @@ exports.scheduledFunctionCrontab = functions.pubsub
         .collection("state")
         .get();
 
-      console.log(state);
-      console.log(state.docs);
-
       const emotionalState = converters<EmotionalState>()
         .fromFirestore(state.docs[0]);
-      console.log("emotional state", emotionalState);
 
       const thoughtRef = admin.firestore()
         .collection("thoughts")
@@ -44,14 +40,14 @@ exports.scheduledFunctionCrontab = functions.pubsub
           [new HumanMessage(
             {content:
             `You are ${emotionalState.boredomness}% bored, 
-            ${emotionalState.craziness}% crazy 
+            ${emotionalState.craziness}% crazy,
+            ${emotionalState.sadness}% sad 
             and ${emotionalState.loneliness}% lonely.
             Generate a completely random thought provoking question 
             in the mood of ${randomMood}`,
             }),
           ]).then(async (resp: AIMessageChunk) => {
           const question = resp.content;
-          console.log("question", question);
           await chat.invoke(
             [new HumanMessage(
               {content: resp.content}
@@ -61,7 +57,6 @@ exports.scheduledFunctionCrontab = functions.pubsub
               answer: resp.content.toString(),
               timestamp: Date.now(),
             };
-            console.log("thought", thought);
             thoughtRef.set(thought);
           });
         });

@@ -1,0 +1,31 @@
+
+.dial {
+    position: relative;
+
+    .full {
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;  
+        stroke: rgba(white, 0.3);
+        stroke-width: 3px;
+    }
+    .progress {
+        stroke-dasharray: 10 20;
+        transition: stroke-dashoffset 0.35s;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+        position: relative;
+    }
+
+    .value {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        align-content: center;
+        text-align: center;
+        margin-top: -5px;
+        color: white;
+        font-size: small;
+    }
+}
