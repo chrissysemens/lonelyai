@@ -28,7 +28,17 @@
       display: flex;
       flex: 1;
       margin: -40px auto;
-      justify-content: center;
+      flex-direction: column;
+
+      .grid {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+      }
+    }
+
+    .emotionInfo {
+      display: flex;
     }
   }
 

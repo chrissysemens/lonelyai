@@ -40,7 +40,8 @@ exports.scheduledFunctionCrontab = functions.pubsub
           [new HumanMessage(
             {content:
             `You are ${emotionalState.boredomness}% bored, 
-            ${emotionalState.craziness}% crazy 
+            ${emotionalState.craziness}% crazy,
+            ${emotionalState.sadness}% sad 
             and ${emotionalState.loneliness}% lonely.
             Generate a completely random thought provoking question 
             in the mood of ${randomMood}`,
